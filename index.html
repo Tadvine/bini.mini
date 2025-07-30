@@ -230,6 +230,27 @@
             color: var(--dark);
         }
         
+        /* بخش ویدیو */
+        .video-section {
+            padding: 5rem 10%;
+            text-align: center;
+            background-color: var(--light);
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        
         /* بخش گالری */
         .gallery {
             padding: 5rem 10%;
@@ -393,6 +414,10 @@
             .hero p {
                 font-size: 1.1rem;
             }
+            
+            .video-container iframe {
+                height: 400px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -450,6 +475,10 @@
                 font-size: 2rem;
             }
             
+            .video-container iframe {
+                height: 350px;
+            }
+            
             .float-buttons {
                 bottom: 20px;
                 left: 20px;
@@ -484,6 +513,10 @@
                 width: 250px;
                 right: -250px;
             }
+            
+            .video-container iframe {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -498,6 +531,7 @@
         <ul class="nav-links">
             <li><a href="#home">خانه</a></li>
             <li><a href="#services">خدمات</a></li>
+            <li><a href="#video">ویدیوها</a></li>
             <li><a href="#gallery">گالری</a></li>
             <li><a href="#contact">تماس</a></li>
         </ul>
@@ -542,6 +576,14 @@
         </div>
     </section>
     
+    <!-- بخش ویدیو -->
+    <section class="video-section" id="video">
+        <h2 class="section-title">ویدیوهای جراحی</h2>
+        <div class="video-container">
+            <iframe src="https://fh1.linklick.ir/90c8665a848d65d7fe15cc8db419d29f.linklick.ir.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+    
     <!-- بخش گالری -->
     <section class="gallery" id="gallery">
         <h2 class="section-title">گالری قبل و بعد</h2>
@@ -574,23 +616,7 @@
             <p>موبایل: ۰۹۳۶۶۲۰۴۴۵۶</p>
             <p>ساعات کاری: شنبه تا چهارشنبه ۱۶ الی ۲۰</p>
         </div>
-        
-        
-   <!--  
-        <div class="social-icons">
-            <a href="https://www.instagram.com/bini.mini1" class="social-icon instagram" target="_blank">
-            
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://maps.google.com/?q=کلینیک تخصصی سعادت آباد" class="social-icon maps" target="_blank">
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-            
- -->       
-            
-        </div>
     </section>
-    
     
     <!-- دکمه‌های شناور -->
     <div class="float-buttons">
@@ -610,10 +636,11 @@
         <div class="footer-links">
             <a href="#home">خانه</a>
             <a href="#services">خدمات</a>
+            <a href="#video">ویدیوها</a>
             <a href="#gallery">گالری</a>
             <a href="#contact">تماس</a>
         </div>
-        <p class="copyright">© کلیه حقوق برای کلینیک جراحی بینی مینی محفوظ است </p>
+        <p class="copyright">© کلیه حقوق برای کلینیک جراحی بینی مینی محفوظ است</p>
     </footer>
     
     <script>
