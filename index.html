@@ -234,6 +234,15 @@
             color: var(--dark);
         }
         
+        /* استایل برای شمارنده‌ها */
+        .counter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
         /* بخش ویدیو */
         .video-section {
             padding: 5rem 10%;
@@ -739,24 +748,44 @@
         <h2 class="section-title">چرا ما را انتخاب کنید؟</h2>
         <div class="features-grid">
             <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">👨‍⚕️</div>
+                <div class="feature-icon">✔️</div>
+                
+                
                 <h3>تخصص و تجربه</h3>
-                <p>بیش از ۸ سال تجربه در جراحی‌های بینی با هزاران بیمار راضی</p>
+                <p>بیش از <span class="counter" data-target="9" data-duration="1500">0</span> سال تجربه در جراحی بینی</p>
             </div>
             
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">✔️</div>  
+                <h3>رضایت بیماران</h3>
+                <p>بیش از <span class="counter" data-target="1240" data-duration="3000">0</span> بیمار </p>
+            </div>
+            
+            
+            
+            
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-icon">✔️</div>
                 <h3>بینی خوش فرم با سبک اروپایی</h3>
                 <p> جراحی دقیق، نیمه فانتزی، بدون تامپون </p>
             </div>
             
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-icon">🏥</div>
+            
+            
+            
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon">✔️</div>
                 <h3>تجهیزات مدرن</h3>
                 <p>استفاده از پیشرفته‌ترین تجهیزات پزشکی و تکنیک‌های روز دنیا</p>
             </div>
             
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+            
+            
+            
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="feature-icon">💯</div>
                 <h3>ضمانت کیفیت</h3>
                 <p>پشتیبانی کامل قبل و بعد از عمل با گارانتی نتایج</p>
@@ -885,10 +914,10 @@
     <script>
         // راه‌اندازی AOS
         AOS.init({
-            duration: 800, // مدت زمان انیمیشن
-            easing: 'ease-in-out', // نوع انیمیشن
-            once: false, // آیا انیمیشن فقط یکبار اجرا شود؟
-            mirror: true // آیا هنگام اسکرول به عقب هم انیمیشن اجرا شود؟
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
         });
         
         // منوی همبرگری
@@ -947,11 +976,9 @@
         
         let currentMediaIndex = 0;
         let mediaItems = [];
-        let currentMediaType = ''; // 'image' یا 'video'
+        let currentMediaType = '';
         
-        // آماده سازی آیتم‌های رسانه
         function prepareMediaItems() {
-            // اضافه کردن تصاویر گالری
             galleryItems.forEach(item => {
                 mediaItems.push({
                     type: 'image',
@@ -960,7 +987,6 @@
                 });
             });
             
-            // اضافه کردن ویدیوها
             videoItems.forEach(item => {
                 mediaItems.push({
                     type: 'video',
@@ -970,7 +996,6 @@
             });
         }
         
-        // باز کردن لایت باکس برای تصاویر
         galleryItems.forEach((item, index) => {
             item.addEventListener('click', () => {
                 prepareMediaItems();
@@ -982,7 +1007,6 @@
             });
         });
         
-        // باز کردن لایت باکس برای ویدیوها
         videoItems.forEach((item, index) => {
             item.addEventListener('click', () => {
                 prepareMediaItems();
@@ -994,31 +1018,26 @@
             });
         });
         
-        // بستن لایت باکس
         lightboxClose.addEventListener('click', () => {
             closeLightbox();
         });
         
-        // کلیک روی پس‌زمینه تاریک برای بستن
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
             }
         });
         
-        // تصویر قبلی
         lightboxPrev.addEventListener('click', (e) => {
             e.stopPropagation();
             navigateMedia(-1);
         });
         
-        // تصویر بعدی
         lightboxNext.addEventListener('click', (e) => {
             e.stopPropagation();
             navigateMedia(1);
         });
         
-        // تغییر رسانه با کیبورد
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
             
@@ -1031,14 +1050,12 @@
             }
         });
         
-        // پیمایش بین رسانه‌ها
         function navigateMedia(direction) {
             currentMediaIndex = (currentMediaIndex + direction + mediaItems.length) % mediaItems.length;
             currentMediaType = mediaItems[currentMediaIndex].type;
             updateLightboxMedia();
         }
         
-        // آپدیت محتوای لایت باکس
         function updateLightboxMedia() {
             lightboxMediaContainer.innerHTML = '';
             
@@ -1069,12 +1086,78 @@
             }
         }
         
-        // بستن لایت باکس
         function closeLightbox() {
             lightbox.classList.remove('active');
             document.body.style.overflow = 'auto';
-            mediaItems = []; // پاک کردن لیست رسانه‌ها
+            mediaItems = [];
         }
+
+        // شمارنده انیمیشنی - نسخه نهایی و کاملاً اصلاح شده
+        let countersStarted = false;
+        
+        function startCounters() {
+            if (countersStarted) return;
+            countersStarted = true;
+            
+            const experienceCounter = document.querySelector('.counter[data-target="9"]');
+            const patientsCounter = document.querySelector('.counter[data-target="1240"]');
+            
+            // انیمیشن شمارنده سال تجربه
+            animateCounter(experienceCounter, () => {
+                // پس از اتمام، انیمیشن شمارنده بیماران را شروع می‌کنیم
+                animateCounter(patientsCounter);
+            });
+        }
+
+        function animateCounter(counter, callback) {
+            const target = +counter.getAttribute('data-target');
+            const duration = +counter.getAttribute('data-duration') || 2000;
+            const startValue = 0;
+            const startTime = performance.now();
+            
+            function updateCounter(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                const currentValue = Math.floor(progress * target);
+                
+                counter.textContent = currentValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                    if (callback) callback();
+                }
+            }
+            
+            requestAnimationFrame(updateCounter);
+        }
+
+        // فعال کردن شمارنده‌ها هنگام اسکرول به بخش
+        function handleScroll() {
+            const featuresSection = document.getElementById('services');
+            const sectionPosition = featuresSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+
+            if (sectionPosition < screenPosition) {
+                startCounters();
+                window.removeEventListener('scroll', handleScroll);
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        // فعال کردن شمارنده‌ها در صورت لود شدن صفحه در همان بخش
+        document.addEventListener('DOMContentLoaded', () => {
+            const featuresSection = document.getElementById('services');
+            const sectionPosition = featuresSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight;
+
+            if (sectionPosition < screenPosition) {
+                startCounters();
+                window.removeEventListener('scroll', handleScroll);
+            }
+        });
     </script>
 </body>
 </html>
