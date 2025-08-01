@@ -241,6 +241,7 @@
             color: var(--accent);
             display: inline-block;
             margin: 0 5px;
+            font-family: Vazir, sans-serif;
         }
         
         /* بخش ویدیو */
@@ -752,13 +753,13 @@
                 
                 
                 <h3>تخصص و تجربه</h3>
-                <p>بیش از <span class="counter" data-target="9" data-duration="1500">0</span> سال تجربه در جراحی بینی</p>
+                <p>بیش از <span class="counter" data-target="۹" data-duration="1500">۰</span> سال تجربه در جراحی بینی</p>
             </div>
             
             <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-icon">✔️</div>  
                 <h3>رضایت بیماران</h3>
-                <p>بیش از <span class="counter" data-target="1240" data-duration="3000">0</span> بیمار </p>
+                <p>بیش از <span class="counter" data-target="۱۲۷۶" data-duration="3000">۰</span> بیمار راضی</p>
             </div>
             
             
@@ -792,6 +793,8 @@
             </div>
         </div>
     </section>
+    
+    
     
     <!-- بخش ویدیو -->
     <section class="video-section" id="video">
@@ -883,7 +886,7 @@
     <div class="float-buttons">
         <a href="tel:+989366204456" class="float-button phone-float">
             <i class="fas fa-phone"></i>
-            <span class="phone-tooltip">تماس با ما: 09366204456</span>
+            <span class="phone-tooltip">تماس با ما: ۰۹۳۶۶۲۰۴۴۵۶</span>
         </a>
         <a href="https://wa.me/989366204456" class="float-button whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i>
@@ -1099,8 +1102,8 @@
             if (countersStarted) return;
             countersStarted = true;
             
-            const experienceCounter = document.querySelector('.counter[data-target="9"]');
-            const patientsCounter = document.querySelector('.counter[data-target="1240"]');
+            const experienceCounter = document.querySelector('.counter[data-target="۹"]');
+            const patientsCounter = document.querySelector('.counter[data-target="۱۲۷۶"]');
             
             // انیمیشن شمارنده سال تجربه
             animateCounter(experienceCounter, () => {
@@ -1110,17 +1113,26 @@
         }
 
         function animateCounter(counter, callback) {
-            const target = +counter.getAttribute('data-target');
+            const target = counter.getAttribute('data-target');
             const duration = +counter.getAttribute('data-duration') || 2000;
-            const startValue = 0;
             const startTime = performance.now();
+            
+            // اعداد فارسی
+            const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
             
             function updateCounter(currentTime) {
                 const elapsedTime = currentTime - startTime;
                 const progress = Math.min(elapsedTime / duration, 1);
-                const currentValue = Math.floor(progress * target);
                 
-                counter.textContent = currentValue;
+                // محاسبه مقدار فعلی بر اساس پیشرفت
+                const numericValue = Math.floor(progress * parseInt(convertToEnglish(target)));
+                
+                // تبدیل به عدد فارسی
+                let persianValue = numericValue.toString().split('').map(digit => 
+                    persianNumbers[parseInt(digit)]
+                ).join('');
+                
+                counter.textContent = persianValue;
                 
                 if (progress < 1) {
                     requestAnimationFrame(updateCounter);
@@ -1131,6 +1143,26 @@
             }
             
             requestAnimationFrame(updateCounter);
+        }
+        
+        // تابع برای تبدیل اعداد فارسی به انگلیسی برای محاسبات
+        function convertToEnglish(number) {
+            const persianToEnglishMap = {
+                '۰': '0',
+                '۱': '1',
+                '۲': '2',
+                '۳': '3',
+                '۴': '4',
+                '۵': '5',
+                '۶': '6',
+                '۷': '7',
+                '۸': '8',
+                '۹': '9'
+            };
+            
+            return number.toString().split('').map(digit => 
+                persianToEnglishMap[digit] || digit
+            ).join('');
         }
 
         // فعال کردن شمارنده‌ها هنگام اسکرول به بخش
