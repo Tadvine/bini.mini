@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کلینیک تخصصی جراحی بینی مینی</title>
     
+    <meta name="description" content="کلینیک جراحی بینی مینی">
+<meta name="keywords" content="بینی مینی جراجی بینی ">
+<meta name="robots" content="index, follow">
+    
+    
     <!-- فونت Vazir -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
     
@@ -131,7 +136,7 @@
         /* بخش هیرو با بکگراند جدید */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/back.bini.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/back.bini1.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -715,6 +720,43 @@
             .lightbox-media {
                 max-height: 60vh;
             }
+            
+            /* استایل دکمه بیشتر */
+.more-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.more-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.more-button:hover {
+    background-color: var(--secondary);
+    color: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.more-button i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.more-button:hover i {
+    transform: translateX(-5px);
+}
+            
+            
+            
         }
     </style>
 </head>
@@ -830,6 +872,16 @@
                 </div>
                 <div class="video-title">نمونه جراحی بینی ۳</div>
             </div>
+            
+            
+            <!-- در بخش ویدیو، بعد از video-grid -->
+<div class="more-container" data-aos="fade-up">
+    <a href="videos.html" class="more-button">مشاهده همه ویدیوها <i class="fas fa-chevron-left"></i></a>
+</div>
+
+            
+            
+            
         </div>
     </section>
     
@@ -861,6 +913,14 @@
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
                 <img src="https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/6.jpg" alt="نمونه شش">
             </div>
+            
+            
+<!-- در بخش گالری، بعد از gallery-grid -->
+<div class="more-container" data-aos="fade-up">
+    <a href="gallery.html" class="more-button">مشاهده همه تصاویر <i class="fas fa-chevron-left"></i></a>
+</div>
+            
+            
         </div>
     </section>
     
