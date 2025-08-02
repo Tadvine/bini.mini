@@ -1,2 +1,2 @@
 User-agent: *
-Allow: /
+Sitemap: https://bini-mini.pages.dev/sitemap.xml
