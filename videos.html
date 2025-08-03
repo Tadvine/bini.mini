@@ -537,32 +537,8 @@
     <section class="videos-section">
         <h2 class="section-title">ویدیوهای کامل جراحی</h2>
         
-        <div class="advanced-videos">
-            <div class="video-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="video-player" data-plyr-provider="html5" data-plyr-embed-id="vid1"></div>
-                <div class="video-info">
-                    <h3 class="video-title">جراحی بینی نمونه ۱</h3>
-                    <p class="video-description"></p>
-                </div>
-            </div>
-            
-            <div class="video-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="video-player" data-plyr-provider="html5" data-plyr-embed-id="vid2"></div>
-                <div class="video-info">
-                    <h3 class="video-title">جراحی بینی نمونه ۲</h3>
-                    <p class="video-description"></p>
-                </div>
-            </div>
-            
-            <div class="video-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="video-player" data-plyr-provider="html5" data-plyr-embed-id="vid3"></div>
-                <div class="video-info">
-                    <h3 class="video-title">جراحی بینی نمونه ۳</h3>
-                    <p class="video-description"></p>
-                </div>
-            </div>
-            
-            
+        <div class="advanced-videos" id="videos-container">
+            <!-- ویدیوها به صورت داینامیک اضافه خواهند شد -->
         </div>
     </section>
     
@@ -695,62 +671,115 @@
                 {
                     id: 'vid1',
                     src: 'https://cdn.imgurl.ir/uploads/a575457_vid1.mp4',
-                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg'
+                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg',
+                    title: 'جراحی بینی نمونه ۱'
                 },
                 {
                     id: 'vid2',
                     src: 'https://cdn.imgurl.ir/uploads/d9070_vid2.mp4',
-                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg'
+                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg',
+                    title: 'جراحی بینی نمونه ۲'
                 },
                 {
                     id: 'vid3',
                     src: 'https://cdn.imgurl.ir/uploads/z218797_vid3.mp4',
-                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg'
+                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg',
+                    title: 'جراحی بینی نمونه ۳'
+                },
+                {
+                    id: 'vid4',
+                    src: 'https://cdn.imgurl.ir/uploads/e4022_.mp4',
+                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg',
+                    title: 'جراحی بینی نمونه ۴'
+                },
+                {
+                    id: 'vid5',
+                    src: 'https://cdn.imgurl.ir/uploads/l948110_.mp4',
+                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg',
+                    title: 'جراحی بینی نمونه ۵'
+                },
+                {
+                    id: 'vid6',
+                    src: 'https://cdn.imgurl.ir/uploads/r134263_.mp4',
+                    poster: 'https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/poster.jpg',
+                    title: 'جراحی بینی نمونه ۶'
                 }
+                
+                
+                
                 
             ];
             
             // ایجاد آرایه‌ای برای نگهداری نمونه‌های پلیر
             const players = [];
+            const videosContainer = document.getElementById('videos-container');
             
-            // ایجاد پلیر برای هر ویدیو
-            videos.forEach(video => {
-                const container = document.querySelector(`[data-plyr-embed-id="${video.id}"]`);
-                if (container) {
-                    // ایجاد عنصر ویدیو
-                    const videoElement = document.createElement('video');
-                    videoElement.playsinline = true;
-                    videoElement.controls = true;
-                    videoElement.poster = video.poster;
-                    
-                    const sourceElement = document.createElement('source');
-                    sourceElement.src = video.src;
-                    sourceElement.type = 'video/mp4';
-                    
-                    videoElement.appendChild(sourceElement);
-                    container.appendChild(videoElement);
-                    
-                    // راه‌اندازی Plyr
-                    const player = new Plyr(videoElement, {
-                        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
-                        settings: ['quality', 'speed'],
-                        hideControls: false,
-                        ratio: '16:9'
+            // ایجاد کارت ویدیو برای هر ویدیو
+            videos.forEach((video, index) => {
+                // ایجاد عنصر کارت ویدیو
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                videoCard.setAttribute('data-aos', 'fade-up');
+                videoCard.setAttribute('data-aos-delay', (index + 1) * 100);
+                
+                // ایجاد پلیر ویدیو
+                const videoPlayer = document.createElement('div');
+                videoPlayer.className = 'video-player';
+                videoPlayer.setAttribute('data-plyr-provider', 'html5');
+                videoPlayer.setAttribute('data-plyr-embed-id', video.id);
+                
+                // ایجاد اطلاعات ویدیو
+                const videoInfo = document.createElement('div');
+                videoInfo.className = 'video-info';
+                
+                const videoTitle = document.createElement('h3');
+                videoTitle.className = 'video-title';
+                videoTitle.textContent = video.title;
+                
+                const videoDescription = document.createElement('p');
+                videoDescription.className = 'video-description';
+                
+                videoInfo.appendChild(videoTitle);
+                videoInfo.appendChild(videoDescription);
+                
+                videoCard.appendChild(videoPlayer);
+                videoCard.appendChild(videoInfo);
+                
+                videosContainer.appendChild(videoCard);
+                
+                // ایجاد عنصر ویدیو
+                const videoElement = document.createElement('video');
+                videoElement.playsinline = true;
+                videoElement.controls = true;
+                videoElement.poster = video.poster;
+                
+                const sourceElement = document.createElement('source');
+                sourceElement.src = video.src;
+                sourceElement.type = 'video/mp4';
+                
+                videoElement.appendChild(sourceElement);
+                videoPlayer.appendChild(videoElement);
+                
+                // راه‌اندازی Plyr
+                const player = new Plyr(videoElement, {
+                    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
+                    settings: ['quality', 'speed'],
+                    hideControls: false,
+                    ratio: '16:9'
+                });
+                
+                // ذخیره نمونه پلیر در آرایه
+                players.push(player);
+                
+                // اضافه کردن رویداد برای پخش ویدیو
+                player.on('play', () => {
+                    // توقف تمام ویدیوهای دیگر
+                    players.forEach(p => {
+                        if (p !== player && !p.paused) {
+                            p.pause();
+                        }
                     });
-                    
-                    // ذخیره نمونه پلیر در آرایه
-                    players.push(player);
-                    
-                    // اضافه کردن رویداد برای پخش ویدیو
-                    player.on('play', () => {
-                        // توقف تمام ویدیوهای دیگر
-                        players.forEach(p => {
-                            if (p !== player && !p.paused) {
-                                p.pause();
-                            }
-                        });
-                    });
-                }
+                });
             });
         });
     </script>
