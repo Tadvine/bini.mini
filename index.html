@@ -6,9 +6,8 @@
     <title>کلینیک تخصصی جراحی بینی مینی</title>
     
     <meta name="description" content="کلینیک جراحی بینی مینی">
-<meta name="keywords" content="بینی مینی جراجی بینی ">
-<meta name="robots" content="index, follow">
-    
+    <meta name="keywords" content="بینی ، مینی جراجی بینی ، رضایت بیماران بیش از ۵۴۰۰ سابقه بیش از ۱۲ سال ">
+    <meta name="robots" content="index, follow">
     
     <!-- فونت Vazir -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css">
@@ -342,6 +341,41 @@
         
         .gallery-item:hover img {
             transform: scale(1.05);
+        }
+        
+        /* استایل دکمه بیشتر */
+        .more-container {
+            text-align: center;
+            margin-top: 2rem;
+            grid-column: 1 / -1;
+        }
+
+        .more-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .more-button:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .more-button i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .more-button:hover i {
+            transform: translateX(-5px);
         }
         
         /* لایت باکس گالری و ویدیو */
@@ -720,43 +754,6 @@
             .lightbox-media {
                 max-height: 60vh;
             }
-            
-            /* استایل دکمه بیشتر */
-.more-container {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.more-button {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background-color: var(--accent);
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow);
-}
-
-.more-button:hover {
-    background-color: var(--secondary);
-    color: var(--dark);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.more-button i {
-    margin-right: 8px;
-    transition: transform 0.3s ease;
-}
-
-.more-button:hover i {
-    transform: translateX(-5px);
-}
-            
-            
-            
         }
     </style>
 </head>
@@ -792,14 +789,9 @@
         <div class="features-grid">
             <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-icon">✔️</div>
-                
-                
-                
                 <h3>تخصص و تجربه</h3>
                 <p>بیش از <span class="counter" data-target="۱۲" data-duration="2700">۰</span> سال تجربه در جراحی بینی</p>
             </div>
-            
-    
             
             <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-icon">✔️</div>  
@@ -807,19 +799,11 @@
                 <p>بیش از <span class="counter" data-target="۵۴۰۰" data-duration="1000">۰</span> بیمار راضی</p>
             </div>
             
-            
-            
-            
-            
             <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-icon">✔️</div>
                 <h3>بینی خوش فرم با سبک اروپایی</h3>
                 <p> جراحی دقیق، نیمه فانتزی، بدون تامپون </p>
             </div>
-            
-            
-            
-            
             
             <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="feature-icon">✔️</div>
@@ -827,13 +811,11 @@
                 <p>استفاده از پیشرفته‌ترین تجهیزات پزشکی و تکنیک‌های روز دنیا</p>
             </div>
             
-            
             <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="feature-icon">✔️</div>
                 <h3>پشتیبانی رایگان</h3>
                 <p>پاسخگویی و پیگیری قبل و بعد از جراحی</p>
             </div>
-            
             
             <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="feature-icon">✔️</div>
@@ -842,8 +824,6 @@
             </div>
         </div>
     </section>
-    
-    
     
     <!-- بخش ویدیو -->
     <section class="video-section" id="video">
@@ -872,16 +852,10 @@
                 </div>
                 <div class="video-title">نمونه جراحی بینی ۳</div>
             </div>
-            
-            
-            <!-- در بخش ویدیو، بعد از video-grid -->
-<div class="more-container" data-aos="fade-up">
-    <a href="videos.html" class="more-button">مشاهده همه ویدیوها <i class="fas fa-chevron-left"></i></a>
-</div>
-
-            
-            
-            
+        </div>
+        
+        <div class="more-container" data-aos="fade-up">
+            <a href="videos.html" class="more-button">مشاهده همه ویدیوها <i class="fas fa-chevron-left"></i></a>
         </div>
     </section>
     
@@ -909,18 +883,13 @@
                 <img src="https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/5.jpg" alt="نمونه پنج">
             </div>
             
-            
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
                 <img src="https://raw.githubusercontent.com/Tadvine/bini.mini/refs/heads/main/Pic/6.jpg" alt="نمونه شش">
             </div>
-            
-            
-<!-- در بخش گالری، بعد از gallery-grid -->
-<div class="more-container" data-aos="fade-up">
-    <a href="gallery.html" class="more-button">مشاهده همه تصاویر <i class="fas fa-chevron-left"></i></a>
-</div>
-            
-            
+        </div>
+        
+        <div class="more-container" data-aos="fade-up">
+            <a href="gallery.html" class="more-button">مشاهده همه تصاویر <i class="fas fa-chevron-left"></i></a>
         </div>
     </section>
     
